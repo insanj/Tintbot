@@ -6,7 +6,7 @@ include theos/makefiles/common.mk
 
 TWEAK_NAME = Tintbot
 Tintbot_FILES = Tintbot.xm
-Tintbot_FRAMEWORKS = UIKit
+Tintbot_FRAMEWORKS = UIKit QuartzCore CoreGraphics
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 

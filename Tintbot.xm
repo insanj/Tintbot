@@ -1,48 +1,39 @@
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 /****************************** TabBar Tinting ******************************/
-
-@interface PTHTweetbotAccountController : UITabBarController <UITabBarControllerDelegate>
-- (id)initWithAccount:(id)arg1;
-@end
-
-%hook PTHTweetbotAccountController
 
 // UITabBar defaults:
 // barStyle = 0
 //			UIBarStyleDefault
 // barTintColor = UIDeviceWhiteColorSpace 0.101961 1
 //				[UIColor colorWithWhite:0.101961 alpha:1]
-// tintColor = UIDeviceRGBColorSpace 0.4 0.690196 1 1
-//			 [UIColor colorWithRed:0.4 green:0.686275 blue:1 alpha:1];
+// tintColor (light theme) = UIDeviceRGBColorSpace 0 0.478431 1 1
+//			 			  [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1]
+// tintColor (dark theme) = UIDeviceRGBColorSpace 0.4 0.690196 1 1
+//			 			 [UIColor colorWithRed:0.4 green:0.690196 blue:1 alpha:1]
 // translucent = YES
 // alpha = 1
 
-/*- (id)initWithAccount:(id)arg1 {
-	PTHTweetbotAccountController *controller = %orig();
-	UITabBar *bar = controller.tabBar;
+%hook UITabBar
 
-	bar.barStyle = UIBarStyleBlack;
-	bar.barTintColor = [UIColor clearColor];
-
-	NSLog(@"[Tintbot] Detected -init of UITabBarController (%@ with %@), tinting...", controller, controller.tabBar);
-	return controller;
-}
-
-- (void)colorThemeDidChange {
+- (void)layoutSubviews {
 	%orig();
 
-	NSLog(@"[Tintbot] Detected -colorThemeDidChange, tinting %@...", self.tabBar);
-	self.tabBar.barStyle = UIBarStyleBlack;
-	self.tabBar.barTintColor = [UIColor clearColor];
-}*/
+	NSLog(@"[Tintbot] Detected UITabBar -layoutSubviews, tinting properly...");
 
-- (void)viewDidLayoutSubviews {
-	%orig();
+	// Dark Theme
+	if(CGColorGetComponents([self.tintColor CGColor])[0] > 0) {
+		self.barStyle = UIBarStyleBlack;
+		self.barTintColor = nil;
+	}
 
-	NSLog(@"[Tintbot] Detected -viewDidLayoutSubviews, tinting %@...", self.tabBar);
-	self.tabBar.barTintColor = [UIColor clearColor];
-	self.tabBar.barStyle = UIBarStyleBlack;
+	// Light Theme
+	else {
+		self.barStyle = UIBarStyleDefault;
+		self.barTintColor = [UIColor clearColor];
+	}
 }
 
 %end
