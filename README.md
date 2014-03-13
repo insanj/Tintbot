@@ -3,6 +3,8 @@ Tintbot
 
 Tint Tweetbot's navigation bars.
 
+![Example of light and dark tinting in Tweetbot 3](https://f.cloud.github.com/assets/951011/2406509/9509114a-aa71-11e3-811c-b0809a3c7586.png)
+
 ---------------------------------------
 [Creative Commons Attribution-NonCommercial 3.0 United States License](http://creativecommons.org/licenses/by-nc/3.0/us/) as of 2014:
 
