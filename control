@@ -2,7 +2,7 @@ Package: com.insanj.tintbot
 Name: Tintbot
 Pre-Depends: firmware (>= 7.0)
 Depends: mobilesubstrate
-Version: 0.1
+Version: 0.1.1
 Architecture: iphoneos-arm
 Description: Tint Tweetbot's navigation bars.
 Maintainer: Julian Weiss <insanjmail@insanj.com>

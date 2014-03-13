@@ -3,7 +3,7 @@ Tintbot
 
 Tint Tweetbot's navigation bars.
 
-![Example of light and dark tinting in Tweetbot 3](https://f.cloud.github.com/assets/951011/2406509/9509114a-aa71-11e3-811c-b0809a3c7586.png)
+![Examples of navigation and tab bar tinting, as well as cell tinting in timeline view](https://f.cloud.github.com/assets/951011/2406757/aeb08414-aa78-11e3-8886-8aa3caddadd6.png)
 
 ---------------------------------------
 [Creative Commons Attribution-NonCommercial 3.0 United States License](http://creativecommons.org/licenses/by-nc/3.0/us/) as of 2014:
