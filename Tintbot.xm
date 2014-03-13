@@ -37,6 +37,30 @@
 
 %end
 
+/**************************** Table Cell Tinting ****************************/
+
+@interface PTHTweetbotCursorController
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+@end
+
+@interface PTHTweetbotStatusCell : UITableViewCell
+@property (nonatomic,copy) UIView *statusView;
+@end
+
+%hook PTHTweetbotCursorController
+
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 {
+	PTHTweetbotStatusCell *cell = %orig();
+
+	CGFloat whiteValue;
+	if (![cell.statusView.backgroundColor getWhite:&whiteValue alpha:nil] || whiteValue <= 0.2) {
+		cell.statusView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.9];
+	}
+
+	return cell;
+}
+
+%end
 
 /****************************** TabBar Tinting ******************************/
 
