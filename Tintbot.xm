@@ -50,7 +50,7 @@
 
 	CGFloat whiteValue;
 	if (![self.statusView.backgroundColor getWhite:&whiteValue alpha:nil] || whiteValue <= 0.5) {
-		self.statusView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.9];
+		self.statusView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1.0];
 	}
 }
 
